@@ -5,4 +5,5 @@
     <string name="tv_my_profile">MY PROFILE</string>
     <string name="progress_bar_message">Please Wait...Page is Loading...</string>
     <string name="about_alc_activity">About ALC</string>
+    <string name="my_profile_activity">My Profile</string>
 </resources>

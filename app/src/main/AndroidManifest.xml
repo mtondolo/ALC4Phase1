@@ -23,7 +23,17 @@
             android:name=".AboutALC"
             android:label="@string/about_alc_activity"
             android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <!--The manifest entry for our MyProfileActivity. Each Activity requires a manifest entry-->
+        <activity
+            android:name=".MyProfile"
+            android:label="@string/my_profile_activity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
