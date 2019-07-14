@@ -6,4 +6,10 @@
     <string name="progress_bar_message">Please Wait...Page is Loading...</string>
     <string name="about_alc_activity">About ALC</string>
     <string name="my_profile_activity">My Profile</string>
+    <string name="tv_name">Name: Musa Tondolo</string>
+    <string name="tv_track">Track: Android</string>
+    <string name="country">Country: Zambia</string>
+    <string name="tv_email">Email: mtondolo@gmail.com</string>
+    <string name="tv_phone">Phone Number: +260962212354</string>
+    <string name="tv_slack">Slack Username: @mtondolo</string>
 </resources>
