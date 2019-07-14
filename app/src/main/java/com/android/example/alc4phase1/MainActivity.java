@@ -1,5 +1,6 @@
 package com.android.example.alc4phase1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,9 +21,22 @@ public class MainActivity extends AppCompatActivity {
         aboutALCButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AboutALC.class);
-                startActivity(intent);
+
+                // Url for our web page to be opened
+                String url = "https://andela.com/alc/";
+                openWebPage(url);
             }
         });
+    }
+
+    // Method to open our web page
+    public void openWebPage(String url) {
+        Context context = this;
+
+        // Launch the AboutALCActivity using an Intent
+        Class destinationClass = AboutALC.class;
+        Intent intentToStartAboutALCActivity = new Intent(context, destinationClass);
+        intentToStartAboutALCActivity.putExtra(Intent.EXTRA_TEXT, url);
+        startActivity(intentToStartAboutALCActivity);
     }
 }
