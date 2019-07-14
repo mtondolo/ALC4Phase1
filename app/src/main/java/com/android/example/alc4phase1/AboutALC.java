@@ -1,7 +1,9 @@
 package com.android.example.alc4phase1;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ public class AboutALC extends AppCompatActivity {
 
     private WebView mWebView;
     private String mAboutALCLink;
+    ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,15 @@ public class AboutALC extends AppCompatActivity {
     }
 
     private class mWebViewBrowser extends WebViewClient {
+        // This method will be triggered when the Page Started Loading
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            mProgressDialog = ProgressDialog.show(AboutALC.this, null,
+                    getString(R.string.progress_bar_message));
+            mProgressDialog.setCancelable(true);
+            super.onPageStarted(view, url, favicon);
+        }
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             return super.shouldOverrideUrlLoading(view, url);
@@ -56,6 +68,13 @@ public class AboutALC extends AppCompatActivity {
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             handler.proceed();
+        }
+
+        // This method will be triggered when the Page loading is completed
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            mProgressDialog.dismiss();
+            super.onPageFinished(view, url);
         }
     }
 }
